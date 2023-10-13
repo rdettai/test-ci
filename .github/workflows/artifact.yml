@@ -9,6 +9,7 @@ jobs:
   tests:
     runs-on: "ubuntu-latest"
     steps:
+      - uses: actions/checkout@v4
       - name: Save binary archive for three days
         uses: actions/upload-artifact@v3
         with:
