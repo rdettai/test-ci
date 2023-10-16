@@ -5,12 +5,22 @@ on:
       - opened
       - synchronize
 
+permissions:
+  contents: read
+  issues: write 
+
 jobs:
   mock-check:
-    name: Mock check
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Fetch Tags
         run: echo PR mock checked
+
+  create-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: JasonEtco/create-an-issue@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
