@@ -1,0 +1,16 @@
+name: Tenzir
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  mock-check:
+    name: Mock check
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Fetch Tags
+        run: echo PR mock checked
